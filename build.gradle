@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+ext {
+    mapstructVersion = "1.4.2.Final"
+    lombokVersion = "1.18.16"
+    lombokMapstructBindingVersion = "0.2.0"
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+
+    testImplementation 'junit:junit:4.13.1'
+
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
+}
